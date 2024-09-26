@@ -4,7 +4,7 @@ Extending Python with Rust
 
 ## mylfileutils
 
-This was my first package, published to [pypi.org](http://pypi.org) using ```maturin publish```  nothing else, no special builds or considerations.
+[mylfileutils](mylfileutils/README.md) is my first package, published to [pypi.org](http://pypi.org) using ```maturin publish```  nothing else, no special builds or considerations.
 
 ![mylfileutils on pypi](images/mylutils-pypi.png)
 
