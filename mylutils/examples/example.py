@@ -1,19 +1,19 @@
 import mylutils
 
-#print("\nmylutils.read_txt(test.txt)\n")
+print("\nmylutils.read_txt(test.txt)\n")
 
-#for line in mylutils.read_txt("test.txt"):
-#    print(line)
+for line in mylutils.read_txt("test.txt"):
+   print(line)
 
-#print("\nmylutils.read_csv(test.csv)\n")
-#for line in mylutils.read_csv("test.csv"):
-#    for col in line:
-#        print(col,end=",")
-#    print()
+print("\nmylutils.read_csv(test.csv)\n")
+for line in mylutils.read_csv("test.csv"):
+   for col in line:
+       print(col,end=",")
+   print()
 
 
 print("\nmylutils.read_proc_stat_cpu()\n")
-# print(mylutils.read_proc_stat_cpu())
+
 cpu_stats = mylutils.read_proc_stat_cpu()
 
 total_time = cpu_stats['total_time']
@@ -43,3 +43,9 @@ print("idle_percent", (idle_time/total_time)*100)
 print("iowait_percent", (iowait_time/total_time)*100)
 print("irq_percent", (irq_time/total_time)*100)
 print("softirq_percent", (softirq_time/total_time)*100)
+
+def is_cpu_idle(threshold=50):
+    cpu_stats = mylutils.read_proc_stat_cpu()
+    return((idle_time/total_time)*100 < threshold)
+
+print(f"\nis_cpu_idle(99): {is_cpu_idle(99)}", )

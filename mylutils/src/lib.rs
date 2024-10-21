@@ -90,6 +90,48 @@ fn read_proc_stat_cpu<'a>() -> HashMap<String, i32> {
     cpu_stats
 }
 
+//
+// cat /proc/meminfo
+// MemTotal:       16346452 kB
+// MemFree:         6952332 kB
+// MemAvailable:   14266328 kB
+// Buffers:          774420 kB
+// Cached:          6329928 kB
+// SwapCached:            0 kB
+// Active:          2935724 kB
+// Inactive:        5561148 kB
+// Active(anon):    1285808 kB
+// Inactive(anon):        0 kB
+// Active(file):    1649916 kB
+// Inactive(file):  5561148 kB
+// Unevictable:       32396 kB
+// Mlocked:           27580 kB
+// SwapTotal:       4194300 kB
+// SwapFree:        4194300 kB
+// Zswap:                 0 kB
+// Zswapped:              0 kB
+// Dirty:               372 kB
+//
+
+
+
+// cat /proc/swaps
+// Filename				Type		Size		Used		Priority
+// /swap.img                               file		4194300		0		-2
+
+
+// /proc/vmstat
+// nr_free_pages 1740682
+// nr_zone_inactive_anon 0
+// nr_zone_active_anon 321625
+// nr_zone_inactive_file 1390348
+
+
+
+// /proc/<pid>/status
+// Name:	cpuhp/1
+// Umask:	0000
+// State:	S (sleeping) <-----
 
 
 /// A Python module implemented in Rust.
