@@ -1,17 +1,5 @@
 import mylutils
 
-print("\nmylutils.read_txt(test.txt)\n")
-
-for line in mylutils.read_txt("test.txt"):
-   print(line)
-
-print("\nmylutils.read_csv(test.csv)\n")
-for line in mylutils.read_csv("test.csv"):
-   for col in line:
-       print(col,end=",")
-   print()
-
-
 print("\nmylutils.read_proc_stat_cpu()\n")
 
 cpu_stats = mylutils.read_proc_stat_cpu()
@@ -46,6 +34,8 @@ print("softirq_percent", (softirq_time/total_time)*100)
 
 def is_cpu_idle(threshold=50):
     cpu_stats = mylutils.read_proc_stat_cpu()
+    total_time = cpu_stats['total_time']
+    idle_time = cpu_stats['idle_time']
     return((idle_time/total_time)*100 < threshold)
 
 print(f"\nis_cpu_idle(99): {is_cpu_idle(99)}", )

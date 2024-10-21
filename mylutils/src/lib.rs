@@ -2,7 +2,9 @@ use pyo3::prelude::*;
 use std::fs;
 use std::collections::HashMap;
 
-/// Formats the sum of two numbers as string.
+//
+// READ TEXT FILE, RETURN LIST OF STRINGS
+//
 #[pyfunction]
 fn read_txt<'a>(file_path: &str) -> Vec<String> {
     let lines = fs::read_to_string(file_path)
@@ -10,6 +12,9 @@ fn read_txt<'a>(file_path: &str) -> Vec<String> {
     lines.lines().map(str::to_string).collect()
 }
 
+//
+// READ CSV FILE, RETURN LIST OF LIST OF STRINGS
+//
 #[pyfunction]
 fn read_csv<'a>(file_path: &str) -> Vec<Vec<String>> {
     let lines = fs::read_to_string(file_path)
@@ -24,14 +29,23 @@ fn read_csv<'a>(file_path: &str) -> Vec<Vec<String>> {
     result
 }
 
+//
+// READ AND MARSHALL JSON
+// 
 
-// https://www.linuxhowtos.org/System/procstat.htm
+//
+// READ AND MARSHALL YAML
+//
+
+//
+// READ /PROC/STAT, RETURN DICTIONARY
+//
+// source: https://www.linuxhowtos.org/System/procstat.htm
 //
 // Various pieces of information about kernel activity are available in the
 // /proc/stat file.
 // All of the numbers reported in this file are aggregates since the system first booted.
 // For a quick look, simply cat the file:
-
 // > cat /proc/stat
 // cpu  2255 34 2290 22625563 6290 127 456
 // cpu0 1132 34 1441 11311718 3675 127 438
@@ -42,12 +56,11 @@ fn read_csv<'a>(file_path: &str) -> Vec<Vec<String>> {
 // processes 2915
 // procs_running 1
 // procs_blocked 0
+//
 // The very first "cpu" line aggregates the numbers in all of the other "cpuN" lines.
-
 // These numbers identify the amount of time the CPU has spent performing different kinds of work. Time units are in USER_HZ or Jiffies (typically hundredths of a second).
-
+//
 // The meanings of the columns are as follows, from left to right:
-
 // user: normal processes executing in user mode
 // nice: niced processes executing in user mode
 // system: processes executing in kernel mode
@@ -57,7 +70,7 @@ fn read_csv<'a>(file_path: &str) -> Vec<Vec<String>> {
 // softirq: servicing softirqs
 // The "intr" line gives counts of interrupts serviced since boot time, for each
 // of the possible system interrupts. The first column is the total of all interrupts serviced; each subsequent column is the total for that particular interrupt.
-
+//
 #[pyfunction]
 fn read_proc_stat_cpu<'a>() -> HashMap<String, i32> {
 
@@ -133,8 +146,9 @@ fn read_proc_stat_cpu<'a>() -> HashMap<String, i32> {
 // Umask:	0000
 // State:	S (sleeping) <-----
 
-
+/////////////////////////////////////////////////////////////////////////////////////
 /// A Python module implemented in Rust.
+/////////////////////////////////////////////////////////////////////////////////////
 #[pymodule]
 fn mylutils(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(read_txt, m)?)?;
