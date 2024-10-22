@@ -12,10 +12,4 @@ Extending Python with Rust
 - [CONTRIBUTING](CONTRIBUTING.md)
 - [LICENSE](LICENSE)
 - [SECURITY](SECURITY.md)
-
-
-## Links
-
-- [Writing and publishing a Python module in Rust](https://blog.yossarian.net/2020/08/02/Writing-and-publishing-a-python-module-in-rust)
-- [How to create a PIP package hosted on private Github repo](https://dev.to/rf_schubert/how-to-create-a-pip-package-and-host-on-private-github-repo-58pa)
-- [A guide for updating packages on PyPi](https://stackoverflow.com/questions/52700692/a-guide-for-updating-packages-on-pypi)
+- [Wiki](https://github.com/mayelespino/pyrust/wiki)
