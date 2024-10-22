@@ -1,13 +1,20 @@
 # pyrust
 
-Extending Python with Rust
+Extending Python with Rust.
 
-## mylfileutils
+Please check out: 
+
+- [CONTRIBUTING](CONTRIBUTING.md)
+- [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md)
+- [LICENSE](LICENSE)
+- [SECURITY](SECURITY.md)
+
+## myltils
+
+![mylutils-social-git](images/mylutils-social-git.png)
+
 
 [mylutils](mylutils/README.md) is my first package, published to [pypi.org](http://pypi.org) using ```maturin publish```  nothing else, no special builds or considerations.
-
-![mylfileutils on pypi](images/mylutils-pypi.png)
-
 
 ## Links
 
