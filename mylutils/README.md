@@ -6,14 +6,23 @@ I am planing to turn this in to an open source project, using [the linux foundat
 
 The following are instructions to help you use the package:
 
-__Functions available in mylutils__
+ ## Functions now available in mylutils
 
-- read_txt
-- read_csv
-- read_proc_stat_cpu
+- read_txt : Returns a list of strings, one line each.
+- read_csv : Returns a list of lists of strings, one string on each column.
+- read_proc_stat_cpu : Returns a dictionary with data from the first line from ```/proc/stat```, which corresponds to the consolidated CPU data.
+- read_proc_meminfo : Returns a list of dictionaries with data from ```/proc/meminfo```.
+- read_proc_vmstat : Returns a dictionary with data from the first line from ```/proc/vmstat```.
+- read_proc_pid_stat : Returns a list of dictionaries with the data from  ```/proc/<PID>/stat``` file. One dictionary per pid.  Please read ```man 5 proc``` for more information.
+
+## Functions to be implemented 
+- read_proc_meminfo
+- read_proc_pid_status
 
 
-## How to pip install and run
+# How to pip install and run
+
+## In the OS
 
 __1. Pip install__
 
@@ -40,7 +49,7 @@ $ python
 > dir(mylutils)
 ```
 
-## Run in virtual environment
+## In virtual environment
 
 __1. clone the repo__
 

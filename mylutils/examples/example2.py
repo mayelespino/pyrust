@@ -32,10 +32,27 @@ print("iowait_percent", (iowait_time/total_time)*100)
 print("irq_percent", (irq_time/total_time)*100)
 print("softirq_percent", (softirq_time/total_time)*100)
 
-def is_cpu_idle(threshold=50):
-    cpu_stats = mylutils.read_proc_stat_cpu()
-    total_time = cpu_stats['total_time']
-    idle_time = cpu_stats['idle_time']
-    return((idle_time/total_time)*100 < threshold)
+print("\nmylutils.read_proc_meminfo()")
+meminfo = mylutils.read_proc_meminfo()
+for i in meminfo:
+    print(i, meminfo[i])
 
-print(f"\nis_cpu_idle(99): {is_cpu_idle(99)}", )
+print("\nCalculations ")
+available = int(meminfo['MemAvailable'].replace("kB",""))
+memfree = int(meminfo['MemFree'].replace("kB",""))
+active = int(meminfo['Active'].replace("kB",""))
+active_file = int(meminfo['Active(file)'].replace("kB",""))
+inactive = int(meminfo['Inactive'].replace("kB",""))
+unevictable = int(meminfo['Unevictable'].replace("kB",""))
+
+print("Active memory percent", (active/available)*100 )
+print("Inactive memory percent", (inactive/available)*100 )
+print("Active(file) memory percent", (active_file/available)*100 )
+print("MemAvailable percent", (memfree/available)*100 )
+print("Unevictable percent", (unevictable/available)*100 )
+
+
+print("\nmylutils.read_proc_vmstat()")
+vmstat = mylutils.read_proc_vmstat()
+for i in vmstat:
+    print(i, vmstat[i])
