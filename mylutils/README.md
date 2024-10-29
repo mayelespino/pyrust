@@ -1,4 +1,4 @@
-# mylutils V 0.2.0
+# mylutils V 0.3.0
 
 This is a collection of file utilities. It is currently under active development and not quite ready for prime-time.
 
@@ -13,14 +13,10 @@ The following are instructions to help you use the package:
 - read_proc_vmstat : Returns a dictionary with data from the first line from ```/proc/vmstat```.
 - read_proc_pid_stat : Returns a list of dictionaries with the data from  ```/proc/<PID>/stat``` file. One dictionary per pid.  Please read ```man 5 proc``` for more information.
 
-## Functions to be implemented 
-- read_proc_meminfo
-- read_proc_pid_status
-
 
 # How to pip install and run
 
-## In the OS
+## In the Linux shell command line
 
 __1. Pip install__
 
@@ -129,3 +125,8 @@ if !is_cpu_idle(50):
         add_check("check_system_errors", checks_to_perform)
 
 ```
+# examples/*.py 
+
+In the examples folder there are a few Python programs to ilustrate and test the functions in the mylutils package.
+
+# TODO
