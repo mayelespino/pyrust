@@ -37,4 +37,7 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest pytest-cov
-        pytest unit_tests/tests.py
+        # Test file operations
+        pytest unit_tests/mylutils_tests_01.py
+        # Test 
+        pytest unit_tests/mylutils_tests_02.py
