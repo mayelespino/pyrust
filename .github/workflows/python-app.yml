@@ -37,7 +37,9 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest pytest-cov
+        # cd to working directory
+        cd mylutils/unit_tests
         # Test file operations
-        pytest mylutils/unit_tests/mylutils_tests_01.py
+        pytest mylutils_tests_01.py
         # Test /proc directory functions
-        pytest mylutils/unit_tests/mylutils_tests_02.py
+        pytest mylutils_tests_02.py
