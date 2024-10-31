@@ -38,6 +38,6 @@ jobs:
       run: |
         pip install pytest pytest-cov
         # Test file operations
-        pytest unit_tests/mylutils_tests_01.py
-        # Test 
-        pytest unit_tests/mylutils_tests_02.py
+        pytest mylutils/unit_tests/mylutils_tests_01.py
+        # Test /proc directory functions
+        pytest mylutils/unit_tests/mylutils_tests_02.py
